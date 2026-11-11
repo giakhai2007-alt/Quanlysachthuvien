@@ -2,48 +2,40 @@ import java.util.ArrayList;
 
 public class Test {
     public static void main(String[] args) {
-        // Yêu cầu 3: tạo đối tượng từ lớp Sach
+        // Tạo đối tượng bằng constructor đầy đủ tham số
         Sach s1 = new Sach("S001", "Lập trình Java", "Nguyễn Văn A", 2023, 10);
-        System.out.println("===== YÊU CẦU 3: MỘT ĐỐI TƯỢNG SÁCH =====");
+        System.out.println("===== SÁCH HỢP LỆ =====");
         s1.hienThiThongTin();
 
-        // Yêu cầu 4: tạo và quản lý danh sách Sach bằng ArrayList
+        // Kiểm tra setter với giá trị không hợp lệ
+        System.out.println("\n===== THỬ GÁN GIÁ TRỊ KHÔNG HỢP LỆ =====");
+        s1.setNamXuatBan(3000);
+        s1.setSoLuong(-5);
+        System.out.println("Năm xuất bản vẫn là: " + s1.getNamXuatBan());
+        System.out.println("Số lượng vẫn là    : " + s1.getSoLuong());
+
+        // Kiểm tra setter với giá trị hợp lệ
+        System.out.println("\n===== THỬ GÁN GIÁ TRỊ HỢP LỆ =====");
+        s1.setNamXuatBan(2024);
+        s1.setSoLuong(20);
+        s1.hienThiThongTin();
+
+        // Tạo sách với dữ liệu sai ngay từ constructor
+        System.out.println("\n===== TẠO SÁCH VỚI DỮ LIỆU SAI =====");
+        Sach s2 = new Sach("S002", "Cấu trúc dữ liệu", "Trần Thị B", -1, -3);
+        s2.hienThiThongTin();
+
+        // Danh sách ArrayList (từ tuần 7)
         ArrayList<Sach> danhSach = new ArrayList<>();
         danhSach.add(s1);
-        danhSach.add(new Sach("S002", "Cấu trúc dữ liệu", "Trần Thị B", 2021, 5));
         danhSach.add(new Sach("S003", "Cơ sở dữ liệu", "Lê Văn C", 2022, 8));
-
-        // Hiển thị danh sách
-        System.out.println("\n===== YÊU CẦU 4: DANH SÁCH SÁCH =====");
-        for (int i = 0; i < danhSach.size(); i++) {
-            System.out.println("--- Sách thứ " + (i + 1) + " ---");
-            danhSach.get(i).hienThiThongTin();
-        }
-
-        // Tìm sách theo mã
-        System.out.println("\n===== TÌM SÁCH MÃ S002 =====");
-        boolean timThay = false;
+        System.out.println("\n===== DANH SÁCH SÁCH =====");
+        int tong = 0;
         for (Sach s : danhSach) {
-            if (s.getMaSach().equalsIgnoreCase("S002")) {
-                s.hienThiThongTin();
-                timThay = true;
-                break;
-            }
+            s.hienThiThongTin();
+            System.out.println("---");
+            tong += s.getSoLuong();
         }
-        if (!timThay) {
-            System.out.println("Không tìm thấy sách.");
-        }
-
-        // Xóa sách theo mã
-        System.out.println("\n===== XÓA SÁCH MÃ S003 =====");
-        danhSach.removeIf(s -> s.getMaSach().equalsIgnoreCase("S003"));
-        System.out.println("Số sách còn lại: " + danhSach.size());
-
-        // Tính tổng số lượng
-        int tongSoLuong = 0;
-        for (Sach s : danhSach) {
-            tongSoLuong += s.getSoLuong();
-        }
-        System.out.println("Tổng số lượng sách: " + tongSoLuong);
+        System.out.println("Tổng số lượng: " + tong);
     }
 }

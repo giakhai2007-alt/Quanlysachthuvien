@@ -1,25 +1,26 @@
+import java.time.Year;
+
 public class Sach {
-    // Thuộc tính
+    // Yêu cầu 1: tất cả thuộc tính là private
     private String maSach;
     private String tieuDe;
     private String tacGia;
     private int namXuatBan;
     private int soLuong;
 
-    // Constructor không tham số
     public Sach() {
     }
 
-    // Constructor đầy đủ tham số
+    // Yêu cầu 4: constructor đầy đủ tham số (dùng setter để kiểm tra dữ liệu)
     public Sach(String maSach, String tieuDe, String tacGia, int namXuatBan, int soLuong) {
         this.maSach = maSach;
         this.tieuDe = tieuDe;
         this.tacGia = tacGia;
-        this.namXuatBan = namXuatBan;
-        this.soLuong = soLuong;
+        setNamXuatBan(namXuatBan);
+        setSoLuong(soLuong);
     }
 
-    // Getter và Setter
+    // Yêu cầu 2: getter và setter cho tất cả thuộc tính
     public String getMaSach() {
         return maSach;
     }
@@ -48,19 +49,30 @@ public class Sach {
         return namXuatBan;
     }
 
+    // Yêu cầu 3: năm xuất bản phải > 0 và <= năm hiện tại
     public void setNamXuatBan(int namXuatBan) {
-        this.namXuatBan = namXuatBan;
+        int currentYear = Year.now().getValue();
+        if (namXuatBan > 0 && namXuatBan <= currentYear) {
+            this.namXuatBan = namXuatBan;
+        } else {
+            System.out.println("Lỗi: năm xuất bản " + namXuatBan
+                    + " không hợp lệ (phải từ 1 đến " + currentYear + ").");
+        }
     }
 
     public int getSoLuong() {
         return soLuong;
     }
 
+    // Yêu cầu 3: số lượng không âm
     public void setSoLuong(int soLuong) {
-        this.soLuong = soLuong;
+        if (soLuong >= 0) {
+            this.soLuong = soLuong;
+        } else {
+            System.out.println("Lỗi: số lượng " + soLuong + " không hợp lệ (phải >= 0).");
+        }
     }
 
-    // Yêu cầu 2: in thông tin chi tiết
     public void hienThiThongTin() {
         System.out.println("Mã sách      : " + maSach);
         System.out.println("Tiêu đề      : " + tieuDe);
