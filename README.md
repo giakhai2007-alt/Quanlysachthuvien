@@ -7,3 +7,5 @@
 - Bài thực hành tuần 5: Câu lệnh lặp (for, while, do-while)
 - Bài thực hành tuần 6: Mảng và ArrayList
 - File: BTT5.java (tuần 5 và tuần 6)
+- Bài thực hành tuần 7: Lớp và đối tượng trong Java
+- File: Sach.java (lớp Sach), Test.java (tạo đối tượng, quản lý danh sách bằng ArrayList)
