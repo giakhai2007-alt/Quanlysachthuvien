@@ -9,3 +9,7 @@
 - File: BTT5.java (tuần 5 và tuần 6)
 - Bài thực hành tuần 7: Lớp và đối tượng trong Java
 - File: Sach.java (lớp Sach), Test.java (tạo đối tượng, quản lý danh sách bằng ArrayList)
+- Bài thực hành tuần 8: Tính chất đóng gói trong OOP
+- File: Sach.java (thuộc tính private, getter/setter, kiểm tra hợp lệ, constructor), Test.java
+- Bài thực hành tuần 9: Kế thừa (sách giáo khoa, sách tham khảo)
+- Thư mục tuan9: Sach.java (lớp cha), SachGiaoKhoa.java, SachThamKhao.java, Test.java (menu quản lý danh sách, tính thành tiền, lọc theo nhà xuất bản)
